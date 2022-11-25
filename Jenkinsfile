@@ -1,19 +1,6 @@
-pipeline{
-    agent any 
-    stages {
-        stage('Lint Checks') {
-            steps {
-                sh "npm i jslint"   
-                sh "~/node_modules/jslint/bin/jslint.js server.js || true"
-                sh "Lint Checks Completed"
-            }
-        } 
-        stage('Code Quality Checks') {
-            steps {
-                sh "echo SonarChecksInProgress"   
+@Library('roboshop-shared-library@main') _
 
-            }
-        }     
+env.COMPONENT="cart"
+nodejs()
+// No need to mention call, nodejs.call()
 
-    }   // end of stages 
-}  // end of pipelines
