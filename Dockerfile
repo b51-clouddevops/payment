@@ -1,2 +1,4 @@
 FROM        python:3  
-RUN         
+RUN         useradd roboshop  
+RUN         mkdir /app  
+COPY        payment.ini rabbitmq.py 
